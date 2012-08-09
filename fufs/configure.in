@@ -1,0 +1,59 @@
+#                                               -*- Autoconf -*-
+# Process this file with autoconf to produce a configure script.
+
+AC_PREREQ([2.67])
+AC_INIT(fufs, 0.1, handsomestone@gmail.com)
+AC_CONFIG_SRCDIR([config.h.in])
+AC_CONFIG_HEADERS([config.h])
+
+AM_INIT_AUTOMAKE(fufs, 0.1)
+AC_CONFIG_MACRO_DIR([m4])
+
+export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
+
+PKG_CHECK_MODULES(GLIB, [glib-2.0])
+PKG_CHECK_MODULES(FUSE, [fuse >= 2.2])
+PKG_CHECK_MODULES(OAUTH, [oauth >= 0.9.5])
+PKG_CHECK_MODULES(JSON, [json])
+
+LIBCURL_CHECK_CONFIG([yes], [7.17.0], [], [AC_MSG_ERROR(["libcurl not found"])])
+if test "$libcurl_protocol_HTTP" != yes; then
+	AC_MSG_ERROR(["We need libcurl with support for HTTP protocol."])
+fi
+
+CFLAGS="$CFLAGS -Wall -Werror -W -Wno-sign-compare -D_REENTRANT $GLIB_CFLAGS $FUSE_CFLAGS $LIBCURL_CPPFLAGS"
+LIBS="$GLIB_LIBS $FUSE_LIBS $LIBCURL"
+
+LT_INIT
+
+# check for gtk-doc
+GTK_DOC_CHECK([1.10],[--flavour no-tmpl])
+
+# Checks for programs.
+AC_PROG_CC
+AC_PROG_INSTALL
+
+# Checks for libraries.
+# FIXME: Replace `main' with a function in `-lpthread':
+AC_CHECK_LIB([pthread], [main])
+
+# Checks for header files.
+AC_CHECK_HEADERS([fcntl.h limits.h stdlib.h string.h unistd.h])
+
+# Checks for typedefs, structures, and compiler characteristics.
+AC_TYPE_MODE_T
+AC_TYPE_OFF_T
+AC_TYPE_SIZE_T
+
+# Checks for library functions.
+AC_FUNC_MALLOC
+AC_FUNC_MKTIME
+AC_FUNC_REALLOC
+AC_CHECK_FUNCS([floor getpagesize gettimeofday memset strcasecmp strdup strtol])
+
+AC_CONFIG_FILES([Makefile
+                 fufs.pc             
+                 src/rules.mk
+                 src/Makefile
+                 ])
+AC_OUTPUT
