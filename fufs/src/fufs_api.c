@@ -455,18 +455,5 @@ error_out:
 	FUFS_SAFE_FREE(param);	
 
 	return buf;	
-}/*
-int main()
-{
-	char *temp;
-	char *buf;
-	temp = fufs_api_get_token("771414176@qq.com","890321","local");
-	
-	buf = fufs_api_get_list(72148545);
-	printf("%s\n",temp);
-	printf("%d\n",strlen(temp));
-	printf("%s\n",buf);
-	printf("nice to meet you !!!!!!!!!!!!!!!\n");
-	FUFS_SAFE_FREE(buf);	
-	return 0;
-}*/
+}
+
