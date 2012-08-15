@@ -47,7 +47,9 @@ How to build fufs from svn source code?
 5 run:
 ===================================================================
   mkdir /tmp/fufs
+  
   cd src/
+  
   ./fufs /tmp/fufs
 
  
