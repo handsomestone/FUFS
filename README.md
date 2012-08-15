@@ -31,7 +31,9 @@ How to build fufs from svn source code?
 2 configure
 ===================================================================
   cd fufs
+
   ./autogen.sh
+  
   ./configure
    
 3 build
