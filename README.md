@@ -53,7 +53,7 @@ How to build fufs from svn source code?
   ./fufs /tmp/fufs
 
  
-  afer all these steps you could have successfully installed fufs on your linux desktop
+  after all these steps you could have successfully installed fufs on your linux desktop
   if your account and password is right . you could find your folder and file which are stored in the sina server engine.
   you can read or write the file in the /tmp/fufs as you like.
   
