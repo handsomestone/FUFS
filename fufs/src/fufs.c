@@ -159,7 +159,7 @@ static int fufs_readdir(const char *path, void *buf, fuse_fill_dir_t filler, off
 		fufs_node *value = NULL;
 
 		if (1 != strlen(path)) {
-			//kpfs_node_parse_dir(node, node->fullpath);
+		
 		}
 
 		g_hash_table_iter_init(&iter, node->sub_nodes);
