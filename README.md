@@ -10,7 +10,7 @@
 fufs is a filesystem for accessing sina vdisk based on FUSE.
 (You can use it in commercial software, but please let me know.)
 
-How to build fufs from svn source code?
+How to build fufs from git source code?
 ===================================================================
 1 prepare tools before configure
   if you use ubuntu operating system.you can you apt-get install
