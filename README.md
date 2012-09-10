@@ -85,3 +85,4 @@ How to umount fufs from your linux desktop?
  Where can I get more information:
 =====================================================
  Still have problems please send email to handsomestone@gmail.com
+ http://blog.csdn.net/hiphopmattshi/article/details/7849408#comments
